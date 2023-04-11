@@ -1,5 +1,5 @@
 """
-Make climatological mean files for each cloud type
+Make files for each cloud type
 
 Modification history
 --------------------
@@ -81,10 +81,7 @@ for cld in dOpt.keys():
                     ds[var].attrs = cFlx[var].attrs
         
     #Save file
-    filename = dir_data+'CERES/FluxByCldType/FBCT_%s_mon.nc' % cld
+    filename = dir_data+'CERES/FluxByCldType/FBCT_cldtype_%s_mon.nc' % cld
     os.system('rm %s' % filename) #Delete file if it already exists
     ds.to_netcdf(path=filename,mode='w')
     print('Finished',cld,'!\n')
-
-    
-    
