@@ -1,5 +1,5 @@
 """
-Code to reproduce EBAF-version of Figure 1ab in Diamond et al. (2024), ESSOAr
+Code to reproduce EBAF-version of Figure 1ab in Diamond et al. (2024), GRL
 
 Climatology of Earth's hemispheric albedo symmetry
 
@@ -174,4 +174,3 @@ ax2.legend(frameon=False,fontsize=fs-2,ncol=4,loc=3)
 ax2.text(-.15,1,s='(b)',transform = ax2.transAxes,fontsize=fs+2,fontweight='bold')
 
 plt.savefig(dir_fig+'FigS3.png',dpi=450)
-

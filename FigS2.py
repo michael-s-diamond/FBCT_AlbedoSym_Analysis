@@ -1,5 +1,5 @@
 """
-Code to reproduce Figure S2 in Diamond et al. (2024), ESSOAr
+Code to reproduce Figure S2 in Diamond et al. (2024), GRL
 
 Averaging times to converge on climatology (~0 W m-2) for albedo symmetry
 
@@ -221,17 +221,6 @@ ax2.text(-.125,1,s='(b)',transform = ax2.transAxes,fontsize=fs+2,fontweight='bol
 plt.savefig(dir_fig+'FigS2.png',dpi=450)
 
 
-
-
-
-
-
-
-
-
-
-
-
 """
 Estimates of overall asymmetry
 """
@@ -250,7 +239,3 @@ Dm_ = np.mean(fTr['R'].sel(reg='NH-SH'))
 r1_ = stats.pearsonr(fTr['Ra'].sel(reg='NH-SH')[:-1],fTr['Ra'].sel(reg='NH-SH')[1:])[0]
 nu_ = len(fTr['Ra'].sel(reg='NH-SH'))*(1-r1_)/(1+r1_)
 Ds_ = np.sqrt(np.mean((fTr['Ra'].sel(reg='NH-SH'))**2)/(nu_-1))
-
-
-
-

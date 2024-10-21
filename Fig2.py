@@ -1,5 +1,5 @@
 """
-Code to reproduce Figure 2 in Diamond et al. (2024), ESSOAr
+Code to reproduce Figure 2 in Diamond et al. (2024), GRL
 
 Trend analysis over full CERES FBCT record
 
@@ -377,4 +377,4 @@ ax3.text(-.16,1.025,s='(c)',transform = ax3.transAxes,fontsize=fs+2,fontweight='
 
 
 plt.savefig(dir_fig+'Fig2.png',dpi=450)
-
+plt.savefig(dir_fig+'Fig2.pdf')

@@ -1,5 +1,5 @@
 """
-Code to reproduce Figure 3 in Diamond et al. (2024), ESSOAr
+Code to reproduce Figure 3 in Diamond et al. (2024), GRL
 
 Natural experiments analysis
 
@@ -155,57 +155,6 @@ dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp] = np.dateti
 pre, post, e = Zdiff('Ra_aer',dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp])
 dZ[exp] = (post-pre).values
 dZe[exp] = e.values
-
-
-"""#Sarychev
-exp = 'SAR'
-dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp] = np.datetime64('2009-04-01'),np.datetime64('2009-06-01'),np.datetime64('2009-06-01'),np.datetime64('2009-08-01')
-pre, post, e = Zdiff('Ra_aer',dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp])
-dZ[exp] = (post-pre).values
-dZe[exp] = e.values
-
-
-#Kasatochi
-exp = 'KAS'
-dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp] = np.datetime64('2008-06-01'),np.datetime64('2008-08-01'),np.datetime64('2008-08-01'),np.datetime64('2008-10-01')
-pre, post, e = Zdiff('Ra_aer',dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp])
-dZ[exp] = (post-pre).values
-dZe[exp] = e.values
-
-#Hunga Tonga
-exp = 'HUN'
-dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp] = np.datetime64('2021-10-01'),np.datetime64('2022-01-01'),np.datetime64('2022-01-01'),np.datetime64('2022-04-01')
-pre, post, e = Zdiff('Ra_aer',dt0['pre'][exp], dt1['pre'][exp], dt0['post'][exp], dt1['post'][exp])
-dZ[exp] = (post-pre).values
-dZe[exp] = e.values"""
-
-
-
-"""
-#Testing if weighting by days per month matters (seems to be very small compared to zonal means)
-
-t0 = np.datetime64('2011-06-01')
-t1 = np.datetime64('2015-06-01')
-t2 = np.datetime64('2019-06-01')
-
-t_pre = np.logical_and(fbct.time>t0,fbct.time<t1)
-
-months = np.array([np.datetime64(t0,'M')+np.timedelta64(i,'M') for i in range(len(fbct.time[t_pre]))])
-Mwts_pre = np.array((months+np.timedelta64(1,'M')+np.timedelta64(1,'D'))-(months+np.timedelta64(1,'D')),dtype=float)
-
-pre = np.average(fbct['Ra_sfc'][t_pre],weights=Mwts_pre,axis=0).mean(axis=-1)
-
-t_post = np.logical_and(fbct.time>t1,fbct.time<t2)
-
-months = np.array([np.datetime64(t1,'M')+np.timedelta64(i,'M') for i in range(len(fbct.time[t_post]))])
-Mwts_post = np.array((months+np.timedelta64(1,'M')+np.timedelta64(1,'D'))-(months+np.timedelta64(1,'D')),dtype=float)
-
-post = np.average(fbct['Ra_sfc'][t_post],weights=Mwts_post,axis=0).mean(axis=-1)
-
-months = np.array([np.datetime64('2002-07')+np.timedelta64(i,'M') for i in range(12*(2022-2002))])
-Mwts = np.array((months+np.timedelta64(1,'M')+np.timedelta64(1,'D'))-(months+np.timedelta64(1,'D')),dtype=float)
-"""
-
 
 
 """
@@ -412,14 +361,4 @@ for exp, y1, y2 in zip(dM.keys(),[8,3,8,2.75,5.5,5.5,5.5,11],[2,2.5,1.5,1.5,2,4,
 plt.tight_layout()
 
 plt.savefig(dir_fig+'Fig3.png',dpi=450)
-
-
-
-
-
-
-
-
-
-
-
+plt.savefig(dir_fig+'Fig3.pdf')

@@ -1,5 +1,5 @@
 """
-Code to reproduce Figure S4 in Diamond et al. (2024), ESSOAr
+Code to reproduce Figure S4 in Diamond et al. (2024), GRL
 
 Trend analysis over full CERES EBAF record
 
@@ -231,6 +231,4 @@ plt.xticks([0,1,2.5,4.5],['sfc','aer','Tropical cld','Extratropical cld'],fontsi
 ax2.text(-.16,1.025,s='(b)',transform = ax2.transAxes,fontsize=fs+2,fontweight='bold')
 
 
-
 plt.savefig(dir_fig+'FigS4.png',dpi=450)
-

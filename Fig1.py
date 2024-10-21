@@ -1,5 +1,5 @@
 """
-Code to reproduce Figure 1 in Diamond et al. (2024), ESSOAr
+Code to reproduce Figure 1 in Diamond et al. (2024), GRL
 
 Climatology and trends of Earth's hemispheric albedo symmetry by cloud type
 
@@ -386,5 +386,4 @@ ax2.text(-.15,1,s='(d)',transform = ax2.transAxes,fontsize=fs+2,fontweight='bold
 plt.tight_layout()
 
 plt.savefig(dir_fig+'Fig1.png',dpi=450)
-
-
+plt.savefig(dir_fig+'Fig1.pdf')
